@@ -1,5 +1,8 @@
 package org.container;
 
+/**
+ * A container for storing an arbitrary number of objects.
+ */
 public class Container {
 
     static private class Node {
@@ -15,11 +18,19 @@ public class Container {
     private Node head;
     private int size;
 
+    /**
+     * Creates an empty container.
+     */
     public Container() {
         head = null;
         size = 0;
     }
 
+    /**
+     * Adds a new element to the container.
+     *
+     * @param item the element to add
+     */
     public void add(Object item) {
         Node newNode = new Node(item);
         if (head == null) {
@@ -34,6 +45,13 @@ public class Container {
         size++;
     }
 
+    /**
+     * Retrieves an element by its index.
+     *
+     * @param index the index of the element
+     * @return the element at the specified index
+     * @throws IndexOutOfBoundsException if the index is out of range
+     */
     public Object get(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Index out of bound: " + index);
@@ -45,6 +63,12 @@ public class Container {
         return current.data;
     }
 
+    /**
+     * Removes an element by its index.
+     *
+     * @param index the index of the element to be removed
+     * @throws IndexOutOfBoundsException if the index is out of range
+     */
     public void remove(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Index out of bound: " + index);
@@ -61,6 +85,11 @@ public class Container {
         size--;
     }
 
+    /**
+     * Returns the number of elements in the container.
+     *
+     * @return the size of the container
+     */
     public int size() {
         return size;
     }
